@@ -30,7 +30,7 @@ jobs:
           python-version: '3.x'
 
       - name: Scaffolding repository
-        run: if [[ -f "configure.py" ]]; then python configure.py --package_name ${{ github.repository }}; rm configure.py; fi
+        run: if [[ -f "configure.py" ]]; then python configure.py --repository ${{ github.repository }}; rm configure.py; fi
 
       - name: Push Changes to git repository
         shell: bash
