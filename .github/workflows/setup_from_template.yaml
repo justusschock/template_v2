@@ -1,6 +1,6 @@
 name: Setup repository
 on:
-  create
+  push
 
 jobs:
   setup:
