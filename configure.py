@@ -18,7 +18,7 @@ parser.add_argument('--package_name', default=None, type=str)
 parser.add_argument('--repository', type=str)
 args = parser.parse_args()
 if args.package_name is None:
-    args.package_name = args.repository.split('/', 1)[-1]
+    args.package_name = args.repository.split('/', 1)[-1].replace('-', '_')
 
 with open('setup.cfg', 'r') as f:
     content = [setup_cfg_mods(l) for l in f.readlines()]
