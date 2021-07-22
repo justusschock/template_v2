@@ -1,1 +1,2 @@
-# template_v2
+Python Template repository
+##########################
