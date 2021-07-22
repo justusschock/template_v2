@@ -1,9 +1,5 @@
-#!/usr/bin/env python
-import os
-from typing import List
-from importlib.util import module_from_spec, spec_from_file_location
-
-from setuptools import find_packages, setup
+import setuptools
+setuptools.setup()
 
 _PATH_ROOT = os.path.realpath(os.path.dirname(__file__))
 _PACKAGE_NAME = 'PACKAGE'

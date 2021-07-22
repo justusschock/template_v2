@@ -1,5 +1,1 @@
-import os
-from PACKAGE.__about__ import *  # noqa: F401 F403
-
-_PACKAGE_ROOT = os.path.dirname(__file__)
-_PROJECT_ROOT = os.path.dirname(_PACKAGE_ROOT)
+__version__ = '0.0.1'
