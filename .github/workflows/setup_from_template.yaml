@@ -28,11 +28,20 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: '3.x'
+          
+      - name: Check For Configure File
+        run: if [[ -f "configure.py" ]]; then echo '::set-output name=CONFIGURE_EXISTS::True'; else echo '::set-output name=CONFIGURE_EXISTS::False'; fi
+        id: check_config
+        
+      - name: Get color
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
 
       - name: Scaffolding repository
-        run: if [[ -f "configure.py" ]]; then python configure.py --repository ${{ github.repository }}; rm configure.py; fi
+        if: steps.check_config.outputs.CONFIGURE_EXISTS == 'True'
+        run: python configure.py --repository ${{ github.repository }}; rm configure.py
 
       - name: Push Changes to git repository
+        if: steps.random-color-generator.outputs.CONFIGURE_EXISTS == 'True'
         shell: bash
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com" && \
