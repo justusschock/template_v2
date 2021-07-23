@@ -41,7 +41,7 @@ jobs:
         run: python configure.py --repository ${{ github.repository }}; rm configure.py
 
       - name: Push Changes to git repository
-        if: steps.random-color-generator.outputs.CONFIGURE_EXISTS == 'True'
+        if: steps.check_config.outputs.CONFIGURE_EXISTS == 'True'
         shell: bash
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com" && \
