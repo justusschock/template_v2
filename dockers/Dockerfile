@@ -24,7 +24,7 @@ RUN mkdir /workdir && \
 # necessary to resolve dependencies and compile simpleitk
 RUN apt update && \
     DEBIAN_FRONTEND="noninteractive" apt install -y bash build-essential cmake
-RUN pip install --upgrade pip scikit-build
+RUN pip install --upgrade pip scikit-build torch ${PYPI_OPTIONS}
 
 COPY . /workdir/package
 

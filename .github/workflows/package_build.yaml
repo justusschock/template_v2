@@ -19,6 +19,7 @@ jobs:
           pip install
           build
           --user
+          
       - name: Build a binary wheel and a source tarball
         run: >-
           python -m
@@ -26,3 +27,9 @@ jobs:
           --sdist
           --wheel
           --outdir dist/
+
+      - name: Install from tarball
+        run: pip install --upgrade --force-reinstall ./dist/*.tar.gz
+
+      - name: Install from wheel
+        run: pip install --upgrade --force-reinstall ./dist/*.whl
