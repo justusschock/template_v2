@@ -3,6 +3,8 @@ Python Template repository
 
 This repository comes with a pre-defined python package structure. 
 
+To use it for setting up a new repository, just click the ``Use this template`` button on the project page.
+
 Self-Setup
 ~~~~~~~~~~
 Once a repository is created from this template, it will setup itself with a github action, 
@@ -24,6 +26,11 @@ Automatic Testing
 ~~~~~~~~~~~~~~~~~
 Tests lying under the ``tests`` directory, are automatically run after each commit. The dependencies will thereby be cached on a weekly basis to speedup the development progress.
 In order to get proper code coverage details, users may want to alter the ``ci.yaml`` file in the workflows directory to include ``--source=YOUR_PACKAGE_NAME`` to the ``coverage run`` command in the ``Tests`` step.
-Furthermore users can specify the **CODECOV_TOKEN** secret to upload their coverage results to codecov.
+Furthermore users can specify the **CODECOV_TOKEN** secret to upload their coverage results to `codecov <https://codecov.io>`_.
+
+Pre-Commit Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~
+This repository also contains an opinionated pre-commit config. For more information, on how pre-commit works and how to use it, visit their `website <https://pre-commit.com>`_.
+Pre-Commit is also run on each commit to the main branch and the results will be commited automatically.
 
 
